@@ -12,6 +12,10 @@ html {
 body {
     font-family: "Lab Mono", monospace;
     margin: 0;
+    background: radial-gradient(circle, #ffffff 50%, #e0e0e0 100%); 
+    background-size: 250%; 
+    background-position: center; 
+    background-attachment: fixed; 
 }
 
 /* Images */
@@ -133,7 +137,7 @@ a {
 }
 
 a:hover {
-    background: #FFED66;
+    background: #6aff00;
     color: #000;
     text-decoration: none;
 }
@@ -198,7 +202,7 @@ html {
 }
 
 .view-all-button:hover {
-    background: #FFED66;
+    background: #68f680;
     color: black;
 }
 
