@@ -9,12 +9,13 @@ body {
 }
 
 a {
-    color: #007BFF;
-    text-decoration: none;
+    color: #080808;
+    text-decoration: underline;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #6aff00;
 }
 
 /* Content Wrapper */
@@ -22,9 +23,7 @@ a:hover {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Header Section */
