@@ -70,6 +70,26 @@ body {
     /* Ensure it appears on top of the image */
 }
 
+.icon-container {
+    display: flex;
+    gap: 8px; /* Space between icons */
+    padding: 8px;
+}
+
+.icon-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #fffdfd00; /* Background color */
+}
+
+.icon {
+    max-width: 100%;
+    max-height: 100%;
+}  
+
 .display-middle {
     position: absolute;
     top: 50%;
