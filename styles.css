@@ -62,33 +62,52 @@ body {
     padding: 2rem;
 }
 
-.display-topleft {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    /* Ensure it appears on top of the image */
-}
-
+/* Icon container */
 .icon-container {
     display: flex;
-    gap: 8px; /* Space between icons */
-    padding: 8px;
+    flex-wrap: wrap; 
+    justify-content: left; 
+    gap: 10px; 
+    margin-top: 10px;
 }
 
+  /* Each icon block */
 .icon-block {
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
-    background-color: #fffdfd00; /* Background color */
+    align-items: center;
+    width: 20px;
+    height: 20px;
 }
 
+  /* Icon size */
 .icon {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: auto;
 }  
+
+/* Tooltip styling */
+.icon-block .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fcfafa;
+    text-align: left;
+    border-radius: 0px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: -5px; /* Position the tooltip above the icon */
+    left: 38%;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+  /* Show the tooltip when hovering over an icon */
+.icon-block:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
 
 .display-middle {
     position: absolute;
