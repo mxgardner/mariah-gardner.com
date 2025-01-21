@@ -18,6 +18,12 @@ body {
     background-attachment: fixed; 
 }
 
+#about .main-copy p {
+    max-width: 115ch; 
+    line-height: 1.6; 
+    text-align: left; 
+}
+
 /* Images */
 .image {
     max-width: 100%;
@@ -52,9 +58,9 @@ body {
     margin-bottom: 16px !important;
 }
 
-/* Container and display */
 .container {
     padding: 0.01em 16px;
+    margin-bottom: 24px; /* Reduce space between sections */
 }
 
 .display-container {
