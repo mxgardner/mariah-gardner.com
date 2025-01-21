@@ -62,6 +62,13 @@ body {
     padding: 2rem;
 }
 
+.display-topleft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
 /* Icon container */
 .icon-container {
     display: flex;
