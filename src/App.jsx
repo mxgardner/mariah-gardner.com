@@ -107,49 +107,121 @@ const projects = [
 
 const screenplaySections = [
   {
-    heading: "PUBLICATIONS",
-    slug: "INT. RESEARCH LAB - DAY",
+    heading: "EDUCATION",
+    slug: "INT. STUDY ROOM - DAY",
     action:
-      "A manuscript emerges from a summer of fabrication research: expressive multimaterial modeling, modular CAD-CAM workflows, and fuse bead prototyping.",
-    character: "PAPER",
+      "Two disciplines sit on the same desk: computer science in Texas, filmmaking in Leeds. The technical and creative timelines refuse to stay separate.",
+    character: "TRANSCRIPT",
     dialogue:
-      "Fuseblocks: Enabling Expressive Multimaterial Modeling through Modular CAD-CAM Fuse Bead Prototyping.",
-    entries: [projects[0]],
+      "B.S. in Computer Science, University of Texas at Arlington. B.F.A. in Filmmaking, Leeds Beckett University.",
+    entries: [
+      {
+        title: "The University of Texas at Arlington",
+        meta: "B.S. in Computer Science | Arlington, Texas | Aug. 2023 - est. May 2027",
+      },
+      {
+        title: "Leeds Beckett University",
+        meta: "B.F.A. in Filmmaking | Leeds, United Kingdom | Sept. 2018 - June 2021",
+      },
+    ],
+  },
+  {
+    heading: "RESEARCH EXPERIENCE",
+    slug: "INT. FABRICATION STUDIO - DAY",
+    action:
+      "Material practice becomes a research method. Ceramic slip-casting, fuse beads, and physical computing all become ways to study how people create with tools.",
+    character: "RESEARCHER",
+    dialogue: "Creativity support tools start with the textures, constraints, and decisions of real making.",
+    entries: [
+      {
+        title: "Computing Research Association's Undergraduates to PhD (U2PhD) REU",
+        meta: "Researcher | Arlington, Texas | June 2025 - Aug. 2025",
+        details: [
+          "Investigated ceramic slip-casting as a material interaction case study for physical and hybrid creative systems.",
+          "Analyzed material affordances and interaction patterns across fabrication modalities.",
+        ],
+      },
+      {
+        title: "Mirage Mentoring Program",
+        meta: "Researcher | Arlington, Texas | June 2025 - Aug. 2025",
+        details: [
+          "Designed a studio-based user study on creative workflows in physical computing and fabrication contexts.",
+          "Conducted qualitative coding and thematic analysis to inform interactive systems research.",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "RESEARCH TRAINING",
+    slug: "INT. MAKERSPACE - AFTERNOON",
+    action:
+      "A 10-week NSF research site turns tools into method: FDM printing, kilns, technical writing, documentation, and a manuscript built from material experiments.",
+    character: "MANUSCRIPT",
+    dialogue: "Expressive Multimaterial Modeling through Modular CAD-CAM Fuse Bead Prototyping.",
+    entries: [
+      {
+        title: "NSF REU Site: Hybrid Media and Performative Making",
+        meta: "Researcher | Arlington, Texas | June 2024 - Aug. 2024",
+        details: [
+          "Completed a 10-week undergraduate research program with makerspace training, technical writing, and research documentation.",
+          "Prepared a LaTeX manuscript on modular CAD-CAM fuse bead prototyping.",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "PUBLICATIONS",
+    slug: "INT. CONFERENCE PROGRAM - DAY",
+    action:
+      "The research turns into papers: fabrication systems, material speculation, and creative tools written for an audience of builders and HCI researchers.",
+    character: "PROGRAM",
+    dialogue: "Creativity and Cognition, London, July 2026.",
+    entries: [
+      {
+        title: "FuseBits: A Dialogue Toolkit for Exploring, Prescribing, and Redesigning Thermoplastic Materials using Fuse Beads",
+        meta: "Mariah Gardner, Mohammad Nasir Rakib, Cesar Torres | Creativity and Cognition (C&C), London, July 2026",
+        href: projects[0].href,
+      },
+      {
+        title: "Case by Case: Generative AI as a Tool for Documentation and Speculation Across Material Practices",
+        meta: "Mariah Gardner, Adam Emerson, Cesar Torres | C&C Undergraduate Symposium, London, July 2026",
+      },
+    ],
   },
   {
     heading: "STUDENT LEADERSHIP",
-    slug: "INT. ACM UTA - AFTERNOON",
+    slug: "INT. STUDENT ORG MEETING - EVENING",
     action:
-      "A student chapter rebuilds its research division around mentorship, documentation, and helping students find their first serious questions.",
-    character: "ROLE",
-    dialogue: "Director of Research for ACM UTA.",
-    entries: [projects[1]],
+      "The work leaves the lab and becomes infrastructure: programs, showcases, officer teams, mentorship, and a clearer path for students who have not seen themselves in research yet.",
+    character: "ORGANIZER",
+    dialogue: "Lower the barrier, keep the room open, make the first research question less lonely.",
+    entries: [
+      {
+        title: "Association of Computing Machinery (ACM), UTA Chapter",
+        meta: "Director of Research | Remote | Nov. 2024 - Present",
+        href: projects[1].href,
+        details: [
+          "Co-founded a student-led research program for underclassmen.",
+          "Organized a college-wide showcase with engineering student organizations to recognize underrepresented student work.",
+        ],
+      },
+      {
+        title: "Girls Who Code (GWC), UTA Chapter",
+        meta: "Vice President | Remote | Nov. 2024 - Present",
+        details: [
+          "Co-founded UTA's collegiate chapter and helped establish organizational structure, programming, and growth strategy.",
+          "Scaled the organization to 200+ members and 11 officers through mentorship and technical development.",
+        ],
+      },
+    ],
   },
   {
-    heading: "FILM",
-    slug: "EXT. PERMANENT HALLOWEEN - NIGHT",
+    heading: "SELECTED PROJECTS",
+    slug: "INT. INTERFACE - NIGHT",
     action:
-      "Before computer science, there was production: story, schedules, budgets, a team, and the stubborn work of getting images onto film.",
-    character: "PROJECT",
-    dialogue: "Permanent Halloween, a graduation short film shot with a collaborative crew.",
-    entries: [projects[2]],
-  },
-  {
-    heading: "HACKATHONS",
-    slug: "INT. HACKATHON FLOOR - 2:13 A.M.",
-    action:
-      "Fast prototypes turn care into interfaces: climate-conscious shopping, panic support, hardware experiments, and enough caffeine to make a deadline look negotiable.",
-    character: "AWARD",
-    dialogue: "Best Devpost for Planet Score.",
-    entries: [projects[3], projects[4]],
-  },
-  {
-    heading: "SOFTWARE",
-    slug: "INT. INTERFACE - CONTINUOUS",
-    action:
-      "React front ends meet Python services, visual systems, and research-adjacent tools. The page becomes a way to inspect technical traces.",
+      "The portfolio side of the resume keeps moving: research prototypes, software tools, films, hackathon builds, and systems that turn abstract care into usable interfaces.",
     character: "STACK",
-    dialogue: "React, FastAPI, Python, Matplotlib, Chrome extensions, Swift, fabrication tools.",
+    dialogue: "React, FastAPI, Python, Matplotlib, Swift, Chrome extensions, fabrication tools, Figma, and film production.",
     entries: [projects[5], projects[3], projects[0]],
   },
 ];
@@ -221,21 +293,44 @@ function ProjectCard({ project }) {
 }
 
 function ScreenplaySectionPage({ section, index }) {
+  const renderEntryContent = (entry) => (
+    <>
+      <span>{entry.title}</span>
+      <span>{entry.meta ?? entry.authors}</span>
+      {entry.details ? (
+        <ul>
+          {entry.details.map((detail) => (
+            <li key={detail}>{detail}</li>
+          ))}
+        </ul>
+      ) : null}
+    </>
+  );
+
   return (
     <div className="screenplay-scene">
-      <p className="scene-heading">{String(index + 1).padStart(2, "0")}. {section.slug}</p>
-      <p className="scene-section">{section.heading}</p>
+      <p className="scene-heading">
+        <span className="scene-number">{index + 1}</span>
+        <span>{section.slug}</span>
+        <span className="scene-number">{index + 1}</span>
+      </p>
+      <p className="scene-section">TITLE CARD: {section.heading}</p>
       <p className="scene-action">{section.action}</p>
       <div className="scene-dialogue">
         <p>{section.character}</p>
         <p>{section.dialogue}</p>
       </div>
       <div className="scene-items">
-        {section.entries.map((project) => (
-          <a href={project.href} key={project.title} target="_blank" rel="noreferrer">
-            <span>{project.title}</span>
-            <span>{project.authors}</span>
-          </a>
+        {section.entries.map((entry) => (
+          entry.href ? (
+            <a href={entry.href} key={entry.title} target="_blank" rel="noreferrer">
+              {renderEntryContent(entry)}
+            </a>
+          ) : (
+            <div className="scene-item" key={entry.title}>
+              {renderEntryContent(entry)}
+            </div>
+          )
         ))}
       </div>
       <p className="scene-transition">CONTINUED</p>
@@ -247,20 +342,16 @@ function ScreenplayPageContent({ page }) {
   if (page.type === "about") {
     return (
       <div className="screenplay-title-page">
-        <p>ABOUT ME</p>
-        <h1>Mariah Gardner</h1>
-        <p className="byline">Computer Science / HCI / Film</p>
-        <div className="about-script">
-          <p className="scene-heading">INT. PORTFOLIO - DAY</p>
-          <p className="scene-action">
-            A computer science student with a filmmaking background moves between systems and
-            stories, looking for ways technology can make room for people to think, make, and
-            express themselves.
-          </p>
-          <div className="scene-dialogue">
-            <p>MARIAH</p>
-            <p>Human-computer interaction is where my creative and technical lives finally speak the same language.</p>
-          </div>
+        <div className="title-lockup">
+          <p className="title-overline">A PORTFOLIO SCREENPLAY</p>
+          <h1>Mariah J. Gardner</h1>
+          <p>Written by</p>
+          <p>Mariah J. Gardner</p>
+        </div>
+        <div className="title-contact" aria-label="Portfolio summary">
+          <p>Computer Science Student</p>
+          <p>Undergraduate Researcher</p>
+          <p>Creative Problem-Solver</p>
         </div>
       </div>
     );

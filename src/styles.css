@@ -299,13 +299,15 @@ a:hover {
 }
 
 .screenplay-book {
-  --paper: #f8f6ef;
+  --paper: #fbfaf5;
   --ink: #111;
   min-height: 100vh;
   overflow: hidden;
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.08), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.08)),
-    #d8d4ca;
+    linear-gradient(90deg, rgba(0, 0, 0, 0.11), transparent 19%, transparent 81%, rgba(0, 0, 0, 0.1)),
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.7), transparent 42%),
+    #c9c2b7;
 }
 
 .screenplay-topbar {
@@ -370,13 +372,38 @@ a:hover {
   width: 100%;
   height: calc(var(--paper-width) * 1.294118);
   overflow: auto;
-  padding: calc(var(--paper-width) * 0.11) calc(var(--paper-width) * 0.12);
-  background: var(--paper);
+  box-sizing: border-box;
+  padding:
+    calc(var(--paper-width) * 0.117647)
+    calc(var(--paper-width) * 0.117647)
+    calc(var(--paper-width) * 0.117647)
+    calc(var(--paper-width) * 0.176471);
+  background:
+    radial-gradient(circle at 3.8% 18%, rgba(0, 0, 0, 0.16) 0 5px, rgba(255, 255, 255, 0.9) 6px 9px, transparent 10px),
+    radial-gradient(circle at 3.8% 50%, rgba(0, 0, 0, 0.16) 0 5px, rgba(255, 255, 255, 0.9) 6px 9px, transparent 10px),
+    radial-gradient(circle at 3.8% 82%, rgba(0, 0, 0, 0.16) 0 5px, rgba(255, 255, 255, 0.9) 6px 9px, transparent 10px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03), transparent 11%),
+    var(--paper);
   border: 1px solid rgba(0, 0, 0, 0.22);
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.16);
   font-size: 12pt;
-  line-height: 1.25;
+  line-height: 1;
   position: relative;
+}
+
+.book-page::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  position: absolute;
+  left: calc(var(--paper-width) * 0.028);
+  top: 50%;
+  border-radius: 50%;
+  background: #332f28;
+  box-shadow:
+    0 calc(var(--paper-width) * -0.414) 0 #332f28,
+    0 calc(var(--paper-width) * 0.414) 0 #332f28;
+  opacity: 0.72;
 }
 
 .book-spread.flip-prev {
@@ -403,36 +430,42 @@ a:hover {
 
 .script-page-number {
   position: absolute;
-  top: calc(var(--paper-width) * 0.045);
-  right: calc(var(--paper-width) * 0.06);
+  top: calc(var(--paper-width) * 0.058824);
+  right: calc(var(--paper-width) * 0.117647);
   font-size: 12pt;
 }
 
 .screenplay-title-page {
   min-height: 100%;
-  display: grid;
-  grid-template-rows: auto auto auto 1fr;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
 }
 
-.screenplay-title-page > p {
+.title-lockup {
+  margin-top: calc(var(--paper-width) * 0.31);
+}
+
+.title-lockup p,
+.title-contact p {
   margin: 0;
 }
 
 .screenplay-title-page h1 {
-  margin: 20px 0;
+  margin: 24px 0 54px;
   font-size: 12pt;
   font-weight: 400;
   text-transform: uppercase;
 }
 
-.byline {
-  margin-bottom: 48px !important;
+.title-overline {
+  text-transform: uppercase;
 }
 
-.about-script {
-  margin-top: 64px;
+.title-contact {
+  align-self: flex-end;
+  margin: 0 0 calc(var(--paper-width) * 0.02);
   text-align: left;
 }
 
@@ -450,34 +483,41 @@ a:hover {
 }
 
 .scene-heading {
-  margin: 0 0 28px;
+  display: grid;
+  grid-template-columns: 3ch 1fr 3ch;
+  gap: 1ch;
+  margin: 0 0 24px;
   text-transform: uppercase;
+}
+
+.scene-number:last-child {
+  text-align: right;
 }
 
 .scene-section {
-  margin: 0 0 36px;
-  text-align: center;
+  margin: 0 0 24px;
   text-transform: uppercase;
-  text-decoration: underline;
 }
 
 .scene-action {
-  max-width: 60ch;
-  margin: 0 0 28px;
-  line-height: 1.5;
+  max-width: 59ch;
+  margin: 0 0 24px;
+  line-height: 1.16;
 }
 
 .scene-dialogue {
-  width: min(100%, 32ch);
-  margin: 0 auto 30px;
-  text-align: center;
+  width: 32ch;
+  max-width: 100%;
+  margin: 0 0 24px 20ch;
+  text-align: left;
 }
 
 .scene-dialogue p {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 }
 
 .scene-dialogue p:first-child {
+  margin-left: 10ch;
   text-transform: uppercase;
 }
 
@@ -489,11 +529,12 @@ a:hover {
 
 .scene-items {
   display: grid;
-  gap: 12px;
-  margin: 6px 0 34px 7ch;
+  gap: 14px;
+  margin: 2px 0 34px 0;
 }
 
-.scene-items a {
+.scene-items a,
+.scene-item {
   display: grid;
   gap: 3px;
   color: var(--ink);
@@ -508,8 +549,24 @@ a:hover {
   text-transform: uppercase;
 }
 
-.scene-items span:last-child {
-  max-width: 52ch;
+.scene-items span:nth-child(2) {
+  max-width: 54ch;
+}
+
+.scene-items ul {
+  max-width: 54ch;
+  margin: 6px 0 0;
+  padding-left: 0;
+  line-height: 1.16;
+  list-style: none;
+}
+
+.scene-items li::before {
+  content: "- ";
+}
+
+.scene-items li + li {
+  margin-top: 3px;
 }
 
 .book-controls {
