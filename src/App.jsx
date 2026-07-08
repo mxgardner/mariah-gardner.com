@@ -10,219 +10,193 @@ const navItems = [
 ];
 
 const aboutText =
-  "I'm a Computer Science sophomore at the University of Texas at Arlington, an institution celebrated for its diversity and proud status as an R1 research institution. Prior to this, I earned a BFA in Filmmaking from Leeds Beckett University, where I developed a deep appreciation for storytelling and creative expression. Now, my academic journey is fueled by a passion for research, particularly in the field of Human-Computer Interaction (HCI). After graduation, I plan to pursue a PhD in HCI, focusing on innovative ways to bridge technology and creativity.";
+  "Computer science researcher exploring creativity, digital fabrication, and human-computer interaction. My work focuses on designing technologies that better support how people learn, create, fail, and iterate. I enjoy building research communities just as much as I enjoy building research systems, and I'm passionate about making creative expertise more accessible through thoughtful design.";
 
 const projects = [
   {
-    title: "Fuseblocks: Enabling Expressive Multimaterial Modeling through Modular CAD-CAM Fuse Bead Prototyping",
-    authors: "Mariah Gardner, Nasir Rakib, Cesar Torres",
+    title: "BEADLE",
+    authors: "Creativity & Cognition 2026",
     href: "https://drive.google.com/file/d/11XAXWlFk54KKy4asaxZbjIebSj7KNndM/view?usp=sharing",
     image: "/assets/images/Fuseblocks.png",
     description:
-      "A manuscript completed for a 2024 NSF REU, with the project currently being revised for submission to TEI '26.",
+      "Beadle explores material-aware CAD/CAM workflows using fuse beads as an expressive fabrication medium. The project investigates how digital design tools can better capture the physical properties of craft materials instead of treating them as idealized geometry. I contributed to the research, software development, fabrication, evaluation, and publication.",
     icons: [
       ["React", "/assets/icons/React.png"],
-      ["FDM", "/assets/icons/FDM.png"],
       ["Paper.js", "/assets/icons/Paper.js.png"],
-      ["openSCAD", "/assets/icons/openSCAD.png"],
-      ["Unity", "/assets/icons/Unity.png"],
-      ["Node.js", "/assets/icons/Node.js.png"],
-      ["LaTex", "/assets/icons/LaTex.png"],
-      ["Figma", "/assets/icons/Figma.png"],
+      ["OpenSCAD", "/assets/icons/openSCAD.png"],
+      ["JavaScript", "/assets/icons/Node.js.png"],
+      ["Digital Fabrication", "/assets/icons/FDM.png"],
+      ["3D Printing", "/assets/icons/FDM.png"],
+      ["Laser Cutting", "/assets/icons/FDM.png"],
     ],
   },
   {
-    title: "Director of Research for ACM UTA",
-    authors: "Mariah Gardner, Rohita Konjeti",
+    title: "CASE BY CASE",
+    authors: "Creativity & Cognition 2026 — Best Paper Award",
     href: "https://alluring-mambo-972.notion.site/18f904b24ec18196ac2ffd4950463015?v=18f904b24ec181f49434000ce6c14410",
     image: "/assets/images/acm.jpg",
-    description: (
-      <>
-        We are relaunching the research division of our{" "}
-        <a href="https://acmuta.com/" target="_blank" rel="noreferrer">
-          ACM student chapter
-        </a>{" "}
-        with an emphasis on mentoring students and guiding them into research.
-      </>
-    ),
+    description:
+      "Case by Case investigates how expert ceramic knowledge can be represented, validated, and shared through computational knowledge representations. The work focuses on documenting experiential knowledge—including failures, heuristics, and exceptions—that is often missing from traditional documentation. I led ontology development, study design, software development, and writing.",
     icons: [
-      ["Notion", "/assets/icons/Notion.png"],
-      ["Figma", "/assets/icons/Figma.png"],
+      ["Neo4j", "/assets/icons/Node.js.png"],
+      ["React", "/assets/icons/React.png"],
+      ["TypeScript", "/assets/icons/React.png"],
+      ["Knowledge Graphs", "/assets/icons/Notion.png"],
+      ["Ontology Design", "/assets/icons/Notion.png"],
+      ["User Research", "/assets/icons/Figma.png"],
+      ["Human–Computer Interaction", "/assets/icons/Figma.png"],
     ],
   },
   {
-    title: "Permanent Halloween",
-    authors: "Mariah Gardner, Ray Baker, Tom Foden",
+    title: "RHEOCAST",
+    authors: "2025–2026",
     href: "https://youtu.be/byfGf6kUgbk",
     image: "/assets/images/PH.png",
     description:
-      "A short film completed as our graduation project, for which I created the shoot schedule, managed the budget, and led the team.",
+      "RheoCast began as a sensing system for understanding ceramic slip behavior and predicting casting readiness. As the project evolved, it shifted toward studying uncertainty, material behavior, and failure throughout creative practice, ultimately laying the foundation for later research on error-aware fabrication systems.",
     icons: [
-      ["Movie Magic", "/assets/icons/MM.png"],
-      ["Excel", "/assets/icons/Excel.png"],
-      ["16mm Film", "/assets/icons/Film.png"],
+      ["Embedded Systems", "/assets/icons/Ardunio.png"],
+      ["Arduino", "/assets/icons/Ardunio.png"],
+      ["Sensors", "/assets/icons/Ardunio.png"],
+      ["Python", "/assets/icons/Python.png"],
+      ["Rapid Prototyping", "/assets/icons/FDM.png"],
+      ["Research", "/assets/icons/Notion.png"],
     ],
   },
   {
-    title: "Planet Score",
-    authors: "Mariah Gardner",
+    title: "ACM RESEARCH",
+    authors: "Director of Research",
     href: "https://devpost.com/software/planet-score",
     image: "/assets/images/PlanetScore.png",
-    badge: "Best Devpost",
     description:
-      "A Google Chrome extension that computes the carbon footprint of products while users shop.",
+      "As Director of Research for ACM at UTA, I built and led an undergraduate research program designed to lower the barrier to research. I organized workshops, mentored student teams, connected students with faculty mentors, and helped projects progress from ideas to conference publications.",
     icons: [
-      ["Chrome Extension", "/assets/icons/Chrome.png"],
-      ["Life Cycle Assessment", "/assets/icons/LCA.png"],
-      ["Python", "/assets/icons/Python.png"],
+      ["Leadership", "/assets/icons/Notion.png"],
+      ["Mentorship", "/assets/icons/Notion.png"],
+      ["Program Development", "/assets/icons/Notion.png"],
+      ["Research Management", "/assets/icons/Notion.png"],
+      ["Community Building", "/assets/icons/Notion.png"],
+      ["Public Speaking", "/assets/icons/Notion.png"],
     ],
   },
   {
-    title: "Panic Buddy",
-    authors: "Mariah Gardner, Rohita Konjeti, Ashwin Indurti, Samanza Ahmed",
+    title: "GIRLS WHO CODE",
+    authors: "Co-Founder & Vice President",
     href: "https://devpost.com/software/panicbuddy",
     image: "/assets/images/panicbuddy.png",
-    description: "An iOS app that alerts loved ones in the event of a user's panic attack.",
+    description:
+      "I co-founded the University of Texas at Arlington chapter of Girls Who Code to create a welcoming community for women in computing. The organization hosts technical workshops, networking opportunities, mentorship initiatives, and community events that help students build confidence and belonging in technology.",
     icons: [
-      ["Swift", "/assets/icons/Swift.png"],
-      ["Ngork", "/assets/icons/Ngork.png"],
-      ["Arduino", "/assets/icons/Ardunio.png"],
+      ["Leadership", "/assets/icons/Notion.png"],
+      ["Community Building", "/assets/icons/Notion.png"],
+      ["Event Planning", "/assets/icons/Notion.png"],
+      ["Mentorship", "/assets/icons/Notion.png"],
+      ["Public Speaking", "/assets/icons/Notion.png"],
+      ["Graphic Design", "/assets/icons/Figma.png"],
     ],
   },
   {
-    title: "Well-Logged!",
-    authors: "Mariah Gardner, Matheos Giakoumi, Gabriel Ojo, Manav Patel, Leena Abdulqader",
+    title: "PERMANENT HALLOWEEN",
+    authors: "Personal Creative Project",
     href: "https://well-logged.vercel.app/",
     image: "/assets/images/well-logged.png",
     description:
-      "A React app that interfaces with a Python application via FastAPI to generate well log visuals using Matplotlib.",
+      "Permanent Halloween is an ongoing creative brand exploring spooky aesthetics through photography, design, storytelling, and visual identity. It serves as a space for experimenting with creative direction and interactive media outside of my academic research.",
     icons: [
-      ["React", "/assets/icons/React.png"],
-      ["FastAPI", "/assets/icons/FastAPI.png"],
-      ["Python", "/assets/icons/Python.png"],
-      ["Matplotlib", "/assets/icons/MatLib.png"],
+      ["Photography", "/assets/icons/Film.png"],
+      ["Adobe Illustrator", "/assets/icons/Figma.png"],
+      ["Adobe Photoshop", "/assets/icons/Figma.png"],
+      ["Brand Identity", "/assets/icons/Figma.png"],
+      ["Graphic Design", "/assets/icons/Figma.png"],
+      ["Creative Direction", "/assets/icons/Film.png"],
     ],
   },
 ];
 
 const screenplaySections = [
   {
-    heading: "EDUCATION",
-    slug: "INT. STUDY ROOM - DAY",
+    heading: "BEADLE",
+    slug: "INT. FABRICATION LAB – DAY",
     action:
-      "Two disciplines sit on the same desk: computer science in Texas, filmmaking in Leeds. The technical and creative timelines refuse to stay separate.",
-    character: "TRANSCRIPT",
-    dialogue:
-      "B.S. in Computer Science, University of Texas at Arlington. B.F.A. in Filmmaking, Leeds Beckett University.",
+      "Beadle explores material-aware CAD/CAM workflows using fuse beads as an expressive fabrication medium. The project investigates how digital design tools can better capture the physical properties of craft materials instead of treating them as idealized geometry. I contributed to the research, software development, fabrication, evaluation, and publication.",
+    character: "DATE",
+    dialogue: "Creativity & Cognition 2026",
     entries: [
       {
-        title: "The University of Texas at Arlington",
-        meta: "B.S. in Computer Science | Arlington, Texas | Aug. 2023 - est. May 2027",
-      },
-      {
-        title: "Leeds Beckett University",
-        meta: "B.F.A. in Filmmaking | Leeds, United Kingdom | Sept. 2018 - June 2021",
+        title: "Tools",
+        meta: "React | Paper.js | OpenSCAD | JavaScript | Digital Fabrication | 3D Printing | Laser Cutting",
       },
     ],
   },
   {
-    heading: "RESEARCH EXPERIENCE",
-    slug: "INT. FABRICATION STUDIO - DAY",
+    heading: "CASE BY CASE",
+    slug: "INT. CERAMICS STUDIO – AFTERNOON",
     action:
-      "Material practice becomes a research method. Ceramic slip-casting, fuse beads, and physical computing all become ways to study how people create with tools.",
-    character: "RESEARCHER",
-    dialogue: "Creativity support tools start with the textures, constraints, and decisions of real making.",
+      "Case by Case investigates how expert ceramic knowledge can be represented, validated, and shared through computational knowledge representations. The work focuses on documenting experiential knowledge—including failures, heuristics, and exceptions—that is often missing from traditional documentation. I led ontology development, study design, software development, and writing.",
+    character: "DATE",
+    dialogue: "Creativity & Cognition 2026 — Best Paper Award",
     entries: [
       {
-        title: "Computing Research Association's Undergraduates to PhD (U2PhD) REU",
-        meta: "Researcher | Arlington, Texas | June 2025 - Aug. 2025",
-        details: [
-          "Investigated ceramic slip-casting as a material interaction case study for physical and hybrid creative systems.",
-          "Analyzed material affordances and interaction patterns across fabrication modalities.",
-        ],
-      },
-      {
-        title: "Mirage Mentoring Program",
-        meta: "Researcher | Arlington, Texas | June 2025 - Aug. 2025",
-        details: [
-          "Designed a studio-based user study on creative workflows in physical computing and fabrication contexts.",
-          "Conducted qualitative coding and thematic analysis to inform interactive systems research.",
-        ],
+        title: "Tools",
+        meta: "Neo4j | React | TypeScript | Knowledge Graphs | Ontology Design | User Research | Human–Computer Interaction",
       },
     ],
   },
   {
-    heading: "RESEARCH TRAINING",
-    slug: "INT. MAKERSPACE - AFTERNOON",
+    heading: "RHEOCAST",
+    slug: "INT. CERAMICS LAB – MORNING",
     action:
-      "A 10-week NSF research site turns tools into method: FDM printing, kilns, technical writing, documentation, and a manuscript built from material experiments.",
-    character: "MANUSCRIPT",
-    dialogue: "Expressive Multimaterial Modeling through Modular CAD-CAM Fuse Bead Prototyping.",
+      "RheoCast began as a sensing system for understanding ceramic slip behavior and predicting casting readiness. As the project evolved, it shifted toward studying uncertainty, material behavior, and failure throughout creative practice, ultimately laying the foundation for later research on error-aware fabrication systems.",
+    character: "DATE",
+    dialogue: "2025–2026",
     entries: [
       {
-        title: "NSF REU Site: Hybrid Media and Performative Making",
-        meta: "Researcher | Arlington, Texas | June 2024 - Aug. 2024",
-        details: [
-          "Completed a 10-week undergraduate research program with makerspace training, technical writing, and research documentation.",
-          "Prepared a LaTeX manuscript on modular CAD-CAM fuse bead prototyping.",
-        ],
+        title: "Tools",
+        meta: "Embedded Systems | Arduino | Sensors | Python | Rapid Prototyping | Research",
       },
     ],
   },
   {
-    heading: "PUBLICATIONS",
-    slug: "INT. CONFERENCE PROGRAM - DAY",
+    heading: "ACM RESEARCH",
+    slug: "INT. UNIVERSITY CLASSROOM – EVENING",
     action:
-      "The research turns into papers: fabrication systems, material speculation, and creative tools written for an audience of builders and HCI researchers.",
-    character: "PROGRAM",
-    dialogue: "Creativity and Cognition, London, July 2026.",
+      "As Director of Research for ACM at UTA, I built and led an undergraduate research program designed to lower the barrier to research. I organized workshops, mentored student teams, connected students with faculty mentors, and helped projects progress from ideas to conference publications.",
+    character: "DATE",
+    dialogue: "Director of Research",
     entries: [
       {
-        title: "FuseBits: A Dialogue Toolkit for Exploring, Prescribing, and Redesigning Thermoplastic Materials using Fuse Beads",
-        meta: "Mariah Gardner, Mohammad Nasir Rakib, Cesar Torres | Creativity and Cognition (C&C), London, July 2026",
-        href: projects[0].href,
-      },
-      {
-        title: "Case by Case: Generative AI as a Tool for Documentation and Speculation Across Material Practices",
-        meta: "Mariah Gardner, Adam Emerson, Cesar Torres | C&C Undergraduate Symposium, London, July 2026",
+        title: "Tools",
+        meta: "Leadership | Mentorship | Program Development | Research Management | Community Building | Public Speaking",
       },
     ],
   },
   {
-    heading: "STUDENT LEADERSHIP",
-    slug: "INT. STUDENT ORG MEETING - EVENING",
+    heading: "GIRLS WHO CODE",
+    slug: "INT. CAMPUS MEETING ROOM – NIGHT",
     action:
-      "The work leaves the lab and becomes infrastructure: programs, showcases, officer teams, mentorship, and a clearer path for students who have not seen themselves in research yet.",
-    character: "ORGANIZER",
-    dialogue: "Lower the barrier, keep the room open, make the first research question less lonely.",
+      "I co-founded the University of Texas at Arlington chapter of Girls Who Code to create a welcoming community for women in computing. The organization hosts technical workshops, networking opportunities, mentorship initiatives, and community events that help students build confidence and belonging in technology.",
+    character: "DATE",
+    dialogue: "Co-Founder & Vice President",
     entries: [
       {
-        title: "Association of Computing Machinery (ACM), UTA Chapter",
-        meta: "Director of Research | Remote | Nov. 2024 - Present",
-        href: projects[1].href,
-        details: [
-          "Co-founded a student-led research program for underclassmen.",
-          "Organized a college-wide showcase with engineering student organizations to recognize underrepresented student work.",
-        ],
-      },
-      {
-        title: "Girls Who Code (GWC), UTA Chapter",
-        meta: "Vice President | Remote | Nov. 2024 - Present",
-        details: [
-          "Co-founded UTA's collegiate chapter and helped establish organizational structure, programming, and growth strategy.",
-          "Scaled the organization to 200+ members and 11 officers through mentorship and technical development.",
-        ],
+        title: "Tools",
+        meta: "Leadership | Community Building | Event Planning | Mentorship | Public Speaking | Graphic Design",
       },
     ],
   },
   {
-    heading: "SELECTED PROJECTS",
-    slug: "INT. INTERFACE - NIGHT",
+    heading: "PERMANENT HALLOWEEN",
+    slug: "INT. LIVING ROOM – OCTOBER NIGHT",
     action:
-      "The portfolio side of the resume keeps moving: research prototypes, software tools, films, hackathon builds, and systems that turn abstract care into usable interfaces.",
-    character: "STACK",
-    dialogue: "React, FastAPI, Python, Matplotlib, Swift, Chrome extensions, fabrication tools, Figma, and film production.",
-    entries: [projects[5], projects[3], projects[0]],
+      "Permanent Halloween is an ongoing creative brand exploring spooky aesthetics through photography, design, storytelling, and visual identity. It serves as a space for experimenting with creative direction and interactive media outside of my academic research.",
+    character: "DATE",
+    dialogue: "Personal Creative Project",
+    entries: [
+      {
+        title: "Tools",
+        meta: "Photography | Adobe Illustrator | Adobe Photoshop | Brand Identity | Graphic Design | Creative Direction",
+      },
+    ],
   },
 ];
 
@@ -344,14 +318,32 @@ function ScreenplayPageContent({ page }) {
       <div className="screenplay-title-page">
         <div className="title-lockup">
           <p className="title-overline">A PORTFOLIO SCREENPLAY</p>
-          <h1>Mariah J. Gardner</h1>
-          <p>Written by</p>
-          <p>Mariah J. Gardner</p>
+          <h1>MARIAH GARDNER</h1>
+          <p>{aboutText}</p>
+          <p>FADE IN.</p>
         </div>
         <div className="title-contact" aria-label="Portfolio summary">
-          <p>Computer Science Student</p>
-          <p>Undergraduate Researcher</p>
-          <p>Creative Problem-Solver</p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    );
+  }
+
+  if (page.type === "final") {
+    return (
+      <div className="screenplay-title-page">
+        <div className="title-lockup">
+          <p>FADE OUT.</p>
+          <h1>THE END</h1>
+          <p>MARIAH GARDNER</p>
+          <p>Research • Design • Community</p>
+        </div>
+        <div className="title-contact" aria-label="Portfolio ending">
+          <p></p>
+          <p></p>
+          <p></p>
         </div>
       </div>
     );
@@ -504,6 +496,7 @@ function ExperimentPage() {
   const pages = [
     { type: "about", key: "about" },
     ...screenplaySections.map((section, index) => ({ type: "section", section, key: section.heading, index })),
+    { type: "final", key: "final" },
   ];
   const spreads = [
     [pages[0]],
