@@ -1,16 +1,16 @@
-import { layoutWithLines, measureNaturalWidth, prepareWithSegments } from "@chenglou/pretext";
+import { layoutWithLines, prepareWithSegments } from "@chenglou/pretext";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Signal", href: "#signal" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
+  { label: "Experiment", href: "/experiment" },
 ];
 
-const signalText =
-  "Human-computer interaction, fabrication, and film all ask the same question: how can a system make room for people to think, make, and tell better stories?";
+const aboutText =
+  "I'm a Computer Science sophomore at the University of Texas at Arlington, an institution celebrated for its diversity and proud status as an R1 research institution. Prior to this, I earned a BFA in Filmmaking from Leeds Beckett University, where I developed a deep appreciation for storytelling and creative expression. Now, my academic journey is fueled by a passion for research, particularly in the field of Human-Computer Interaction (HCI). After graduation, I plan to pursue a PhD in HCI, focusing on innovative ways to bridge technology and creativity.";
 
 const projects = [
   {
@@ -105,6 +105,55 @@ const projects = [
   },
 ];
 
+const screenplaySections = [
+  {
+    heading: "PUBLICATIONS",
+    slug: "INT. RESEARCH LAB - DAY",
+    action:
+      "A manuscript emerges from a summer of fabrication research: expressive multimaterial modeling, modular CAD-CAM workflows, and fuse bead prototyping.",
+    character: "PAPER",
+    dialogue:
+      "Fuseblocks: Enabling Expressive Multimaterial Modeling through Modular CAD-CAM Fuse Bead Prototyping.",
+    entries: [projects[0]],
+  },
+  {
+    heading: "STUDENT LEADERSHIP",
+    slug: "INT. ACM UTA - AFTERNOON",
+    action:
+      "A student chapter rebuilds its research division around mentorship, documentation, and helping students find their first serious questions.",
+    character: "ROLE",
+    dialogue: "Director of Research for ACM UTA.",
+    entries: [projects[1]],
+  },
+  {
+    heading: "FILM",
+    slug: "EXT. PERMANENT HALLOWEEN - NIGHT",
+    action:
+      "Before computer science, there was production: story, schedules, budgets, a team, and the stubborn work of getting images onto film.",
+    character: "PROJECT",
+    dialogue: "Permanent Halloween, a graduation short film shot with a collaborative crew.",
+    entries: [projects[2]],
+  },
+  {
+    heading: "HACKATHONS",
+    slug: "INT. HACKATHON FLOOR - 2:13 A.M.",
+    action:
+      "Fast prototypes turn care into interfaces: climate-conscious shopping, panic support, hardware experiments, and enough caffeine to make a deadline look negotiable.",
+    character: "AWARD",
+    dialogue: "Best Devpost for Planet Score.",
+    entries: [projects[3], projects[4]],
+  },
+  {
+    heading: "SOFTWARE",
+    slug: "INT. INTERFACE - CONTINUOUS",
+    action:
+      "React front ends meet Python services, visual systems, and research-adjacent tools. The page becomes a way to inspect technical traces.",
+    character: "STACK",
+    dialogue: "React, FastAPI, Python, Matplotlib, Chrome extensions, Swift, fabrication tools.",
+    entries: [projects[5], projects[3], projects[0]],
+  },
+];
+
 function ExternalLink({ href, children }) {
   return (
     <a href={href} target="_blank" rel="noreferrer">
@@ -171,12 +220,294 @@ function ProjectCard({ project }) {
   );
 }
 
-function TextSignal() {
+function ScreenplaySectionPage({ section, index }) {
+  return (
+    <div className="screenplay-scene">
+      <p className="scene-heading">{String(index + 1).padStart(2, "0")}. {section.slug}</p>
+      <p className="scene-section">{section.heading}</p>
+      <p className="scene-action">{section.action}</p>
+      <div className="scene-dialogue">
+        <p>{section.character}</p>
+        <p>{section.dialogue}</p>
+      </div>
+      <div className="scene-items">
+        {section.entries.map((project) => (
+          <a href={project.href} key={project.title} target="_blank" rel="noreferrer">
+            <span>{project.title}</span>
+            <span>{project.authors}</span>
+          </a>
+        ))}
+      </div>
+      <p className="scene-transition">CONTINUED</p>
+    </div>
+  );
+}
+
+function ScreenplayPageContent({ page }) {
+  if (page.type === "about") {
+    return (
+      <div className="screenplay-title-page">
+        <p>ABOUT ME</p>
+        <h1>Mariah Gardner</h1>
+        <p className="byline">Computer Science / HCI / Film</p>
+        <div className="about-script">
+          <p className="scene-heading">INT. PORTFOLIO - DAY</p>
+          <p className="scene-action">
+            A computer science student with a filmmaking background moves between systems and
+            stories, looking for ways technology can make room for people to think, make, and
+            express themselves.
+          </p>
+          <div className="scene-dialogue">
+            <p>MARIAH</p>
+            <p>Human-computer interaction is where my creative and technical lives finally speak the same language.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return <ScreenplaySectionPage section={page.section} index={page.index} />;
+}
+
+function PageCurlOverlay({ curlKey, direction }) {
+  const sketchRef = useRef(null);
+  const curlKeyRef = useRef(curlKey);
+  const directionRef = useRef(direction);
+
+  useEffect(() => {
+    curlKeyRef.current = curlKey;
+    directionRef.current = direction;
+  }, [curlKey, direction]);
+
+  useEffect(() => {
+    let instance;
+    let cancelled = false;
+
+    const sketch = (p) => {
+      let seenCurl = curlKeyRef.current;
+      let progress = 1;
+      let turnDirection = directionRef.current;
+
+      p.setup = () => {
+        const parent = sketchRef.current;
+        const canvas = p.createCanvas(parent.clientWidth, parent.clientHeight);
+        canvas.parent(parent);
+        p.noStroke();
+        p.clear();
+      };
+
+      p.windowResized = () => {
+        const parent = sketchRef.current;
+
+        if (parent) {
+          p.resizeCanvas(parent.clientWidth, parent.clientHeight);
+        }
+      };
+
+      p.draw = () => {
+        if (seenCurl !== curlKeyRef.current) {
+          seenCurl = curlKeyRef.current;
+          turnDirection = directionRef.current;
+          progress = 0;
+        }
+
+        p.clear();
+
+        if (progress >= 1) {
+          return;
+        }
+
+        progress = Math.min(1, progress + 0.034);
+        drawCurlingPage(p, progress, turnDirection);
+      };
+    };
+
+    import("p5").then((module) => {
+      if (cancelled) {
+        return;
+      }
+
+      const P5 = module.default;
+      instance = new P5(sketch);
+    });
+
+    return () => {
+      cancelled = true;
+      instance?.remove();
+    };
+  }, []);
+
+  return <div className="page-curl-overlay" ref={sketchRef} aria-hidden="true" />;
+}
+
+function drawCurlingPage(p, progress, direction) {
+  const w = p.width;
+  const h = p.height;
+  const eased = easeInOutCubic(progress);
+  const fromRight = direction === "next";
+  const pageW = Math.min(w * 0.42, h * 0.772727 * 0.48);
+  const pageH = pageW * 1.294118;
+  const top = (h - pageH) / 2;
+  const gutter = w / 2;
+  const startX = fromRight ? gutter + 7 : gutter - 7;
+  const outerStart = fromRight ? startX + pageW : startX - pageW;
+  const curl = Math.sin(eased * Math.PI) * pageW * 0.34;
+  const outerX = fromRight
+    ? p.lerp(outerStart, startX - pageW * 0.92, eased)
+    : p.lerp(outerStart, startX + pageW * 0.92, eased);
+  const foldX = fromRight ? outerX + curl : outerX - curl;
+  const lowerBend = Math.sin(eased * Math.PI) * pageH * 0.08;
+  const alpha = 255 * Math.sin(progress * Math.PI);
+
+  p.push();
+  p.noStroke();
+  p.fill(0, 0, 0, alpha * 0.16);
+  p.quad(
+    startX,
+    top + 8,
+    fromRight ? outerX - pageW * 0.04 : outerX + pageW * 0.04,
+    top + 26,
+    fromRight ? outerX - pageW * 0.06 : outerX + pageW * 0.06,
+    top + pageH + 28,
+    startX,
+    top + pageH + 12,
+  );
+
+  const paperShade = p.map(Math.sin(eased * Math.PI), 0, 1, 248, 228);
+  p.fill(paperShade, paperShade - 2, paperShade - 8, alpha);
+  p.stroke(30, 30, 30, alpha * 0.34);
+  p.strokeWeight(1);
+  p.beginShape();
+  p.vertex(startX, top);
+  p.bezierVertex(foldX, top + pageH * 0.06, foldX, top + pageH * 0.32, outerX, top + pageH * 0.5);
+  p.bezierVertex(foldX, top + pageH * 0.7, foldX, top + pageH * 0.94, startX, top + pageH);
+  p.endShape(p.CLOSE);
+
+  p.noFill();
+  p.stroke(80, 80, 80, alpha * 0.22);
+  p.strokeWeight(1);
+  for (let line = 0; line < 18; line += 1) {
+    const y = top + pageH * 0.16 + line * pageH * 0.034;
+    const inset = pageW * 0.14;
+    const wobble = Math.sin(line * 0.9 + progress * 4) * lowerBend * 0.08;
+    p.line(
+      fromRight ? Math.min(startX, outerX) + inset : Math.max(startX, outerX) - inset,
+      y + wobble,
+      fromRight ? Math.max(startX, outerX) - inset * 0.72 : Math.min(startX, outerX) + inset * 0.72,
+      y - wobble,
+    );
+  }
+
+  p.stroke(255, 255, 255, alpha * 0.45);
+  p.strokeWeight(Math.max(2, pageW * 0.018));
+  p.line(foldX, top + pageH * 0.05, outerX, top + pageH * 0.5);
+  p.line(outerX, top + pageH * 0.5, foldX, top + pageH * 0.95);
+  p.pop();
+}
+
+function easeInOutCubic(value) {
+  return value < 0.5 ? 4 * value * value * value : 1 - Math.pow(-2 * value + 2, 3) / 2;
+}
+
+function ExperimentPage() {
+  const pages = [
+    { type: "about", key: "about" },
+    ...screenplaySections.map((section, index) => ({ type: "section", section, key: section.heading, index })),
+  ];
+  const spreads = [
+    [pages[0]],
+    ...Array.from({ length: Math.ceil((pages.length - 1) / 2) }, (_, spreadIndex) =>
+      pages.slice(1 + spreadIndex * 2, 1 + spreadIndex * 2 + 2),
+    ),
+  ];
+  const [spreadIndex, setSpreadIndex] = useState(0);
+  const [direction, setDirection] = useState("next");
+  const [curlKey, setCurlKey] = useState(0);
+  const currentSpread = spreads[spreadIndex];
+  const firstVisiblePageNumber = spreadIndex === 0 ? 1 : spreadIndex * 2;
+  const spreadLabel =
+    currentSpread.length === 1
+      ? String(firstVisiblePageNumber).padStart(2, "0")
+      : `${String(firstVisiblePageNumber).padStart(2, "0")}-${String(firstVisiblePageNumber + 1).padStart(2, "0")}`;
+  const goToSpread = (nextIndex) => {
+    if (nextIndex < 0 || nextIndex >= spreads.length || nextIndex === spreadIndex) {
+      return;
+    }
+
+    setDirection(nextIndex > spreadIndex ? "next" : "prev");
+    setSpreadIndex(nextIndex);
+    setCurlKey((current) => current + 1);
+  };
+
+  return (
+    <main className="experiment-page screenplay-book">
+      <header className="screenplay-topbar">
+        <a href="/">MARIAH-GARDNER.COM</a>
+        <span>SCREENPLAY PORTFOLIO</span>
+        <span>PAGE {spreadLabel} / {String(pages.length).padStart(2, "0")}</span>
+      </header>
+
+      <section className={`book-shell ${spreadIndex === 0 ? "single-page" : "two-page"}`} aria-live="polite">
+        <div className={`book-spread flip-${direction}`} key={currentSpread.map((page) => page.key).join("-")}>
+          {currentSpread.map((page, pageOffset) => {
+            const visiblePageNumber = spreadIndex === 0 ? 0 : firstVisiblePageNumber + pageOffset;
+
+            return (
+              <div className="book-page" key={page.key}>
+                <span className="script-page-number">{visiblePageNumber === 0 ? "" : `${visiblePageNumber}.`}</span>
+                <ScreenplayPageContent page={page} />
+              </div>
+            );
+          })}
+          {currentSpread.length === 1 && spreadIndex !== 0 ? (
+            <div className="book-page blank-page" aria-hidden="true">
+              <div>
+                <p className="scene-transition">FADE OUT.</p>
+              </div>
+            </div>
+          ) : null}
+        </div>
+        <PageCurlOverlay curlKey={curlKey} direction={direction} />
+      </section>
+
+      <nav className="book-controls" aria-label="Screenplay pages">
+        <button disabled={spreadIndex === 0} onClick={() => goToSpread(spreadIndex - 1)} type="button">
+          Previous
+        </button>
+        <div>
+          {spreads.map((spread, index) => (
+            <button
+              className={index === spreadIndex ? "active" : ""}
+              key={spread.map((page) => page.key).join("-")}
+              onClick={() => goToSpread(index)}
+              type="button"
+              aria-label={`Go to spread ${index + 1}`}
+            />
+          ))}
+        </div>
+        <button disabled={spreadIndex === spreads.length - 1} onClick={() => goToSpread(spreadIndex + 1)} type="button">
+          Next
+        </button>
+      </nav>
+
+      <section className="mobile-script" aria-label="Mobile screenplay pages">
+        {pages.map((page, index) => (
+          <article className="book-page mobile-page" key={page.key}>
+            <span className="script-page-number">{index === 0 ? "" : `${index}.`}</span>
+            <ScreenplayPageContent page={page} />
+          </article>
+        ))}
+      </section>
+    </main>
+  );
+}
+
+function AboutScatterText() {
   const frameRef = useRef(null);
-  const [width, setWidth] = useState(620);
+  const [width, setWidth] = useState(760);
   const font = '16px "Lab Mono", monospace';
   const lineHeight = 26;
-  const padding = 24;
+  const padding = 8;
 
   useEffect(() => {
     const frame = frameRef.current;
@@ -196,53 +527,72 @@ function TextSignal() {
     return () => observer.disconnect();
   }, []);
 
-  const prepared = useMemo(() => prepareWithSegments(signalText, font), [font]);
-  const naturalWidth = useMemo(() => measureNaturalWidth(prepared), [prepared]);
-  const maxTextWidth = Math.max(180, width - padding * 2);
-  const layout = layoutWithLines(prepared, Math.min(maxTextWidth, naturalWidth), lineHeight);
-  const svgHeight = layout.height + padding * 2 + 10;
+  const prepared = useMemo(() => prepareWithSegments(aboutText, font), [font]);
+  const maxTextWidth = Math.max(220, width - padding * 2);
+  const aboutLayout = layoutWithLines(prepared, maxTextWidth, lineHeight);
+  const svgHeight = aboutLayout.height + padding * 2;
+  let characterIndex = 0;
 
   return (
-    <section className="text-signal" id="signal" ref={frameRef}>
-      <div className="text-signal-copy">
-        <h3>Signal</h3>
-        <p>
-          A tiny Pretext sketch: the sentence is measured before it is drawn, then rendered as SVG
-          lines that respond to the available width.
-        </p>
-      </div>
+    <div className="about-scatter" ref={frameRef}>
+      <p className="sr-only">{aboutText}</p>
       <svg
-        className="text-signal-art"
+        className="about-scatter-art"
         viewBox={`0 0 ${width} ${svgHeight}`}
         role="img"
-        aria-label={signalText}
+        aria-label={aboutText}
       >
-        <line x1={padding} x2={width - padding} y1={padding - 7} y2={padding - 7} />
-        {layout.lines.map((line, index) => {
-          const y = padding + index * lineHeight + 18;
-          const markerWidth = Math.max(24, line.width);
+        {aboutLayout.lines.map((line, lineIndex) => {
+          const y = padding + lineIndex * lineHeight + 17;
+          const charWidth = line.text.length > 0 ? line.width / line.text.length : 9.6;
 
           return (
-            <g key={`${line.text}-${index}`}>
-              <rect
-                x={padding}
-                y={y - 16}
-                width={markerWidth}
-                height="22"
-                className="text-signal-measure"
-              />
-              <text x={padding + 8} y={y}>
-                {line.text}
-              </text>
+            <g key={`${line.text}-${lineIndex}`}>
+              {[...line.text].map((letter, letterIndex) => {
+                const currentIndex = characterIndex;
+                characterIndex += 1;
+
+                return (
+                  <text
+                    className="scatter-letter"
+                    key={`${lineIndex}-${letterIndex}-${letter}`}
+                    x={padding + letterIndex * charWidth}
+                    y={y}
+                    style={{
+                      "--scatter-x": `${Math.sin(currentIndex * 1.73) * 34}px`,
+                      "--scatter-y": `${Math.cos(currentIndex * 2.11) * 22}px`,
+                      "--scatter-rotate": `${Math.sin(currentIndex * 0.87) * 18}deg`,
+                      transitionDelay: `${(currentIndex % 9) * 8}ms`,
+                    }}
+                  >
+                    {letter === " " ? "\u00a0" : letter}
+                  </text>
+                );
+              })}
             </g>
           );
         })}
       </svg>
-    </section>
+      <div className="about-sources" aria-label="About section links">
+        <ExternalLink href="https://www.uta.edu/news/news-releases/2023/09/11/uta-recognized-by-insight-into-diversity">
+          UTA diversity
+        </ExternalLink>
+        <ExternalLink href="https://www.uta.edu/news/news-releases/2021/12/17/uta-renamed-to-carnegie-r1-category">
+          R1 status
+        </ExternalLink>
+        <ExternalLink href="https://www.leedsbeckett.ac.uk/">
+          Leeds Beckett University
+        </ExternalLink>
+      </div>
+    </div>
   );
 }
 
 export default function App() {
+  if (window.location.pathname === "/experiment") {
+    return <ExperimentPage />;
+  }
+
   return (
     <>
       <SideNav />
@@ -250,29 +600,9 @@ export default function App() {
         <div className="content-container">
           <Section id="about" title="About">
             <div className="main-copy">
-              <p>
-                I&apos;m a Computer Science sophomore at the University of Texas at Arlington, an
-                institution{" "}
-                <ExternalLink href="https://www.uta.edu/news/news-releases/2023/09/11/uta-recognized-by-insight-into-diversity">
-                  celebrated for its diversity
-                </ExternalLink>{" "}
-                and proud status as an{" "}
-                <ExternalLink href="https://www.uta.edu/news/news-releases/2021/12/17/uta-renamed-to-carnegie-r1-category">
-                  R1 research institution
-                </ExternalLink>
-                . Prior to this, I earned a BFA in Filmmaking from{" "}
-                <ExternalLink href="https://www.leedsbeckett.ac.uk/">
-                  Leeds Beckett University
-                </ExternalLink>
-                , where I developed a deep appreciation for storytelling and creative expression.
-                Now, my academic journey is fueled by a passion for research, particularly in the
-                field of Human-Computer Interaction (HCI). After graduation, I plan to pursue a PhD
-                in HCI, focusing on innovative ways to bridge technology and creativity.
-              </p>
+              <AboutScatterText />
             </div>
           </Section>
-
-          <TextSignal />
 
           <Section id="news" title="News">
             <div className="main-copy">
