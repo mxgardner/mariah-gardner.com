@@ -124,7 +124,7 @@ const screenplaySections = [
     entries: [
       {
         title: "Tools",
-        meta: "React | Paper.js | OpenSCAD | JavaScript | Digital Fabrication | 3D Printing | Laser Cutting",
+        meta: "Interface: React, Paper.js, JavaScript | Fabrication: OpenSCAD, 3D Printing, Laser Cutting | Method: Digital Fabrication",
       },
     ],
   },
@@ -138,7 +138,7 @@ const screenplaySections = [
     entries: [
       {
         title: "Tools",
-        meta: "Neo4j | React | TypeScript | Knowledge Graphs | Ontology Design | User Research | Human–Computer Interaction",
+        meta: "Representation: Neo4j, Knowledge Graphs, Ontology Design | Interface: React, TypeScript | Method: User Research, Human–Computer Interaction",
       },
     ],
   },
@@ -152,7 +152,7 @@ const screenplaySections = [
     entries: [
       {
         title: "Tools",
-        meta: "Embedded Systems | Arduino | Sensors | Python | Rapid Prototyping | Research",
+        meta: "Hardware: Embedded Systems, Arduino, Sensors | Analysis: Python, Research | Method: Rapid Prototyping",
       },
     ],
   },
@@ -166,7 +166,7 @@ const screenplaySections = [
     entries: [
       {
         title: "Tools",
-        meta: "Leadership | Mentorship | Program Development | Research Management | Community Building | Public Speaking",
+        meta: "Program: Program Development, Research Management | People: Mentorship, Community Building | Voice: Leadership, Public Speaking",
       },
     ],
   },
@@ -180,7 +180,7 @@ const screenplaySections = [
     entries: [
       {
         title: "Tools",
-        meta: "Leadership | Community Building | Event Planning | Mentorship | Public Speaking | Graphic Design",
+        meta: "Community: Leadership, Mentorship, Community Building | Events: Event Planning, Public Speaking | Identity: Graphic Design",
       },
     ],
   },
@@ -194,7 +194,7 @@ const screenplaySections = [
     entries: [
       {
         title: "Tools",
-        meta: "Photography | Adobe Illustrator | Adobe Photoshop | Brand Identity | Graphic Design | Creative Direction",
+        meta: "Image: Photography, Adobe Photoshop | Identity: Adobe Illustrator, Brand Identity | Direction: Graphic Design, Creative Direction",
       },
     ],
   },
@@ -319,6 +319,7 @@ function ScreenplayPageContent({ page }) {
         <div className="title-lockup">
           <p className="title-overline">A PORTFOLIO SCREENPLAY</p>
           <h1>MARIAH GARDNER</h1>
+          <p className="title-triad">Research. Design. Community.</p>
           <p>{aboutText}</p>
           <p>FADE IN.</p>
         </div>
@@ -338,7 +339,7 @@ function ScreenplayPageContent({ page }) {
           <p>FADE OUT.</p>
           <h1>THE END</h1>
           <p>MARIAH GARDNER</p>
-          <p>Research • Design • Community</p>
+          <p className="title-triad">Research • Design • Community</p>
         </div>
         <div className="title-contact" aria-label="Portfolio ending">
           <p></p>

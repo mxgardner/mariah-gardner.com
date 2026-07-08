@@ -386,8 +386,8 @@ a:hover {
     var(--paper);
   border: 1px solid rgba(0, 0, 0, 0.22);
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.16);
-  font-size: 12pt;
-  line-height: 1;
+  font-size: 10.5pt;
+  line-height: 1.12;
   position: relative;
 }
 
@@ -432,7 +432,7 @@ a:hover {
   position: absolute;
   top: calc(var(--paper-width) * 0.058824);
   right: calc(var(--paper-width) * 0.117647);
-  font-size: 12pt;
+  font-size: 10.5pt;
 }
 
 .screenplay-title-page {
@@ -452,14 +452,25 @@ a:hover {
   margin: 0;
 }
 
+.title-lockup p {
+  max-width: 56ch;
+  margin-right: auto;
+  margin-left: auto;
+  line-height: 1.22;
+}
+
 .screenplay-title-page h1 {
-  margin: 24px 0 54px;
-  font-size: 12pt;
+  margin: 20px 0 42px;
+  font-size: 10.5pt;
   font-weight: 400;
   text-transform: uppercase;
 }
 
 .title-overline {
+  text-transform: uppercase;
+}
+
+.title-triad {
   text-transform: uppercase;
 }
 
@@ -486,7 +497,7 @@ a:hover {
   display: grid;
   grid-template-columns: 3ch 1fr 3ch;
   gap: 1ch;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   text-transform: uppercase;
 }
 
@@ -495,20 +506,20 @@ a:hover {
 }
 
 .scene-section {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   text-transform: uppercase;
 }
 
 .scene-action {
   max-width: 59ch;
-  margin: 0 0 24px;
-  line-height: 1.16;
+  margin: 0 0 20px;
+  line-height: 1.22;
 }
 
 .scene-dialogue {
   width: 32ch;
   max-width: 100%;
-  margin: 0 0 24px 20ch;
+  margin: 0 0 20px 20ch;
   text-align: left;
 }
 
@@ -529,8 +540,8 @@ a:hover {
 
 .scene-items {
   display: grid;
-  gap: 14px;
-  margin: 2px 0 34px 0;
+  gap: 10px;
+  margin: 2px 0 28px 0;
 }
 
 .scene-items a,
@@ -551,6 +562,8 @@ a:hover {
 
 .scene-items span:nth-child(2) {
   max-width: 54ch;
+  line-height: 1.22;
+  color: #2f2b25;
 }
 
 .scene-items ul {
@@ -694,6 +707,7 @@ a:hover {
     overflow: visible;
     box-shadow: none;
     animation: none;
+    font-size: 10.5pt;
   }
 
   .mobile-page .scene-transition {
